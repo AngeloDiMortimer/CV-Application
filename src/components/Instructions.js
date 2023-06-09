@@ -25,7 +25,7 @@ class Instructions extends Component {
                             <h2 className="text-3xl font-bold underline decoration-slate-50">How this app works</h2>
                             <ul>
                                 <li>1. Hover over the areas of the resume to find Edit and Add buttons</li>
-                                <li>2. Edit your information in the form fiels and submit your edits</li>
+                                <li>2. Edit your information in the form fields and submit your edits</li>
                                 <li>3. Add your Education and Experience or click on entries to remove them</li>
                                 <li>4. When you're done editing, use CTRL + P (CMND + P on Mac) to print your resume to pdf</li>
                             </ul>
