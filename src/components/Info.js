@@ -6,11 +6,25 @@ class Info extends Component {
         super();
 
         this.state = {
+            name: '',
+            title: '',
             address: '',
             phone: '',
             email: '',
             edit: false
         }
+    }
+
+    handleNameChange = (e) => {
+        this.setState({
+            name: e.target.value
+        }) 
+    }
+
+    handleTitleChange = (e) => {
+        this.setState({
+            title: e.target.value
+        }) 
     }
 
     handleAdressChange = (e) => {
@@ -40,6 +54,8 @@ class Info extends Component {
 
     render() {
         const {
+            name,
+            title,
             address,
             phone,
             email,
@@ -50,6 +66,14 @@ class Info extends Component {
         return ( 
             <div id="Info">
                 <ImagePicker />
+                <div className="name">
+                    
+                    <p>{name ? name : 'Your Name'}</p>
+                </div>
+                <div className="title">
+                    
+                    <p>{title ? title : 'Your title'}</p>
+                </div>
                 <div className="address">
                     <h2>Address</h2>
                     <p>{address ? address : '123 Address St City, ST 5555'}</p>
@@ -72,6 +96,22 @@ class Info extends Component {
 
                 {edit &&
                     <form id="intro-edit" className="edit-form">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="Your Name"
+                            onChange={this.handleNameChange}
+                        />
+
+                        <label htmlFor="title">Title</label>
+                        <input
+                            id="title"
+                            type="text"
+                            placeholder="Your Title"
+                            onChange={this.handleTitleChange}
+                        />
+
                         <label htmlFor="adress">Adress</label>
                         <input
                             id="adress"
