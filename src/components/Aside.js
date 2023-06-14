@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Info from './Info';
 import Competences from "./Competences";
+import Languages from "./Languages";
 
 class Aside extends Component {
     render() {
@@ -8,7 +9,7 @@ class Aside extends Component {
             <aside id="Aside">
                 <Info />
                 <Competences />
-                
+                <Languages />
             </aside>
         ) 
     }
