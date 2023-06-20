@@ -10,32 +10,32 @@ class Competences extends Component {
             competences: [
                 {
                     id: uniqid(),
-                    competence: 'Illustrator'
+                    competence: 'Illustrator (click to delete)'
                 },
                 {
                     id: uniqid(),
-                    competence: 'cool tool'
+                    competence: 'cool tool (click to delete)'
                 },
                 {
                     id: uniqid(),
-                    competence: 'cool tool 2'
+                    competence: 'cool tool 2 (click to delete)'
                 },
                 {
                     id: uniqid(),
-                    competence: 'cool tool 3'
+                    competence: 'cool tool 3 (click to delete)'
                 },
 
                 {
                     id: uniqid(),
-                    competence: 'photoshop'
+                    competence: 'photoshop (click to delete)'
                 },
                 {
                     id: uniqid(),
-                    competence: 'cool tool 4'
+                    competence: 'cool tool 4 (click to delete)'
                 },
                 {
                     id: uniqid(),
-                    competence: 'cool tool 5'
+                    competence: 'cool tool 5 (click to delete)'
                 }
             ],
             edit: false
@@ -75,6 +75,11 @@ class Competences extends Component {
         })
     }
 
+    toggleBtn = () => {
+        const editBtn = document.getElementById("comp-btn");
+        editBtn.classList.toggle("hidden");
+    }
+
     render() {
         const {
             competence,
@@ -83,49 +88,68 @@ class Competences extends Component {
         } = this.state;
 
         return (
-            <div id="Competences">
-                <h2>Competences</h2>
-                <ul>
+            <>
+            <div id="Competences" onMouseEnter={this.toggleBtn} onMouseLeave={this.toggleBtn}>
+                <h2 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mb-4">Competencias</h2>
+                <ul className="flex flex-col gap-2">
                     {competences.map(competence => {
                         return (
-                            <li className="hover:cursor-pointer" key={competence.id} onClick={() => this.handleRemove(competence.id)}>{competence.competence}</li>
+                            <li className="text-xl hover:cursor-pointer" key={competence.id} onClick={() => this.handleRemove(competence.id)}>{competence.competence}</li>
                         )
                     })}
                 </ul>
 
                 <button
-                    className="edit-toggle"
+                    className="edit-toggle hidden w-20 cursor-pointer mt-4 mb-2
+                    rounded-md border-solid border-2 border-white font-semibold
+                    transition-all duration-300
+                    hover:bg-slate-50 hover:text-customBlue"
+                    id="comp-btn"
                     type="button"
                     onClick={this.toggleEdit}
                 >
-                    Add
+                    Edit
                 </button>
+            </div>
+            
 
                 {edit &&
-                    <form id="comp-add" className="edit-form">
-                        <label htmlFor="competence">Competence</label>
+                    <form id="comp-add" className="edit-form flex flex-col border-2 border-slate-50 mt-4 p-2">
+                        <label className="font-bold" htmlFor="competence">Competence</label>
                         <input
+                            className="border-solid border-b-2 border-white bg-transparent
+                            text-white placeholder-white focus:outline-none"
                             id="competence"
                             type="text"
                             value={competence}
                             onChange={this.handleCompChange}
                         />
 
+                        <div className="flex justify-between">
                         <button
+                            className="w-24 mt-4 mb-2 cursor-pointer 
+                            rounded-md border-solid border-2 border-white font-semibold
+                            transition-all duration-300
+                            hover:bg-slate-50 hover:text-customBlue"
                             type="button"
                             onClick={this.onSubmitComp}
                         >
                             Add
                         </button>
                         <button
+                            className="w-24 mt-4 mb-2 cursor-pointer 
+                            rounded-md border-solid border-2 border-white font-semibold
+                            transition-all duration-300
+                            hover:bg-slate-50 hover:text-customBlue"
                             type="button"
                             onClick={this.toggleEdit}
                         >
                             Close
                         </button>
+                        </div>
                     </form>
                 }
-            </div>
+            </>
         )
     }
 }

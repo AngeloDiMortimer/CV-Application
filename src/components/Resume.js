@@ -8,9 +8,9 @@ import Skills from "./Skills";
 class Resume extends Component {
     render() {
         return (
-            <div id="Resume">
+            <div className="flex flex-row w-11/12" id="Resume">
                 <Aside />
-                <main>
+                <main className="flex flex-col text-customBlue">
                     <Intro />
                     <Education />
                     <Experience />

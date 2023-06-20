@@ -27,18 +27,30 @@ const ImagePicker = () => {
         })
     }
 
+    const openFileSelection = () => {
+        const button = document.getElementById("contained-button-file");
+      
+        button.click()
+      }
+
     return (
-        <div>
-            <label htmlFor="contained-button-file">
+        <div>               
                 {logo ? (
                     <span>
-                        <div>
-                            <img src={logo} alt="logo" />
+                        <div className="relative w-36 h-36 rounded-full hover:brightness-50
+                                hover:cursor-pointer">
+                            <img src={logo} alt="logo" className="rounded-full object-cover "
+                                onClick={openFileSelection}
+                            />
+                            
                         </div>
                     </span>
-                ): null}
-            </label>
+                ): (
+                    <div className="w-36 h-36 bg-slate-100 rounded-full hover:cursor-pointer hover:brightness-50" onClick={openFileSelection}></div>
+                )}
+
             <input
+                className="hidden"
                 id="contained-button-file"
                 type="file"
                 accept="image/*, png, jpeg, jpg"
