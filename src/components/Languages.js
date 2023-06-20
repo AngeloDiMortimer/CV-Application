@@ -16,10 +16,6 @@ class Languages extends Component {
                     id: uniqid(),
                     language: 'spanish'
                 },
-                {
-                    id: uniqid(),
-                    language: 'italian'
-                },
             ],
             edit: false
         }
@@ -71,7 +67,7 @@ class Languages extends Component {
         } = this.state;
 
         return (
-            <div id="Languages" onMouseEnter={this.toggleBtn} onMouseLeave={this.toggleBtn}>
+            <div id="Languages" onMouseEnter={this.toggleBtn}>
                 <h2 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mt-4 mb-4">Languages</h2>
                 <ul>
                     {languages.map(language => {

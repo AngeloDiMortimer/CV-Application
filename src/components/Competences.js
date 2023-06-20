@@ -33,10 +33,6 @@ class Competences extends Component {
                     id: uniqid(),
                     competence: 'cool tool 4 (click to delete)'
                 },
-                {
-                    id: uniqid(),
-                    competence: 'cool tool 5 (click to delete)'
-                }
             ],
             edit: false
         }
@@ -89,7 +85,7 @@ class Competences extends Component {
 
         return (
             <>
-            <div id="Competences" onMouseEnter={this.toggleBtn} onMouseLeave={this.toggleBtn}>
+            <div id="Competences" onMouseEnter={this.toggleBtn}>
                 <h2 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mb-4">Competencias</h2>
                 <ul className="flex flex-col gap-2">
                     {competences.map(competence => {
