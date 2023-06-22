@@ -90,6 +90,11 @@ class Education extends Component {
         })
     }
 
+    toggleBtn = () => {
+        const editBtn = document.getElementById("education-btn");
+        editBtn.classList.toggle("hidden");
+    }
+
     render() {
         const {
             school,
@@ -102,24 +107,28 @@ class Education extends Component {
         } = this.state;
         
         return (
-            <div id="Education">
-                <h2>Educación</h2>
+            <div id="Education" onMouseEnter={this.toggleBtn}>
+                <h2 className="text-3xl font-bold border-solid border-b-2 border-customBlue mt-4 mb-4">Educación</h2>
                 {education.map(edu => {
                     return (
-                        <div key={edu.id} onClick={() => this.handleRemove(edu.id)}>
+                        <div className="flex flex-row justify-between mb-6" key={edu.id} onClick={() => this.handleRemove(edu.id)}>
                             <div>
-                                <p className="education-date">{edu.date}</p>
+                                <p className="education-date font-bold">{edu.date}</p>
                                 <p className="education-degree">{edu.degree}</p>
                             </div>
                             <div>
-                                <p className="education-school">{edu.school}</p>
+                                <p className="education-school font-bold">{edu.school}</p>
                                 <p className="education-location">{edu.location}</p>
                             </div>
                         </div>
                     )
                 })}
                 <button
-                    className="edit-toggle"
+                    className="edit-toggle hidden w-20 cursor-pointer mt-4 mb-2
+                    rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                    transition-all duration-300
+                    hover:bg-customBlue hover:text-slate-50"
+                    id="education-btn"
                     type="button"
                     onClick={this.toggleEdit}
                 >
@@ -127,51 +136,69 @@ class Education extends Component {
                 </button>
 
                 {edit &&
-                    <form id="education-add" className="edit-form">
-                        <label htmlFor="school">School</label>
+                    <form id="education-add" className="edit-form flex flex-col gap-1 mb-4 border-2 border-customBlue p-2">
+                        <label className="font-bold" htmlFor="school">School</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="school"
                             type="text"
                             value={school}
                             onChange={this.handleSchoolChange}
                         />
-                        <label htmlFor="degree">Degree</label>
+                        <label className="font-bold" htmlFor="degree">Degree</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="degree"
                             type="text"
                             value={degree}
                             onChange={this.handleDegreeChange}
                         />
-                        <label htmlFor="start-date">Start Date</label>
+                        <label className="font-bold" htmlFor="start-date">Start Date</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="start-date"
                             type="text"
                             value={startDate}
                             placeholder="Month &amp; Year"
                             onChange={this.handleStartDateChange}
                         />
-                        <label htmlFor="end-date">End Date</label>
+                        <label className="font-bold" htmlFor="end-date">End Date</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="end-date"
                             type="text"
                             value={endDate}
                             placeholder="Month &amp; Year"
                             onChange={this.handleEndDateChange}
                         />
-                        <label htmlFor="location">Location</label>
+                        <label className="font-bold" htmlFor="location">Location</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="location"
                             type="text"
                             value={location}
                             onChange={this.handleLocationChange}
                         />
                         <button
+                            className="edit-toggle w-28 cursor-pointer mt-4 mb-2
+                            rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                            transition-all duration-300
+                            hover:bg-customBlue hover:text-slate-50"
                             type="button"
                             onClick={this.onSubmitEducation}
                         >
                             Add Education
                         </button>
                         <button
+                            className="edit-toggle w-20 cursor-pointer mt-4 mb-2
+                            rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                            transition-all duration-300
+                            hover:bg-customBlue hover:text-slate-50"
                             type="button"
                             onClick={this.toggleEdit}
                         >

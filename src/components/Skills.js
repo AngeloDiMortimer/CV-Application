@@ -78,6 +78,11 @@ class Skills extends Component {
         })
     }
 
+    toggleBtn = () => {
+        const editBtn = document.getElementById("skill-btn");
+        editBtn.classList.toggle("hidden");
+    }
+
     render() {
         const {
             skill,
@@ -86,9 +91,9 @@ class Skills extends Component {
         } = this.state;
 
         return (
-            <div id="Skills">
-                <h2>Habilidades</h2>
-                <ul>
+            <div id="Skills" onMouseEnter={this.toggleBtn}>
+                <h2 className="text-3xl font-bold border-solid border-b-2 border-customBlue mt-4 mb-4">Habilidades</h2>
+                <ul className="flex flex-col justify-between mb-4">
                     {skills.map(skill => {
                         return(
                             <li key={skill.id} onClick={() => this.handleRemove(skill.id)}>{skill.skill}</li>
@@ -97,29 +102,43 @@ class Skills extends Component {
                 </ul>
 
                 <button
-                    className="edit-toggle"
+                    className="hidden w-20 cursor-pointer mt-4 mb-2
+                    rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                    transition-all duration-300
+                    hover:bg-customBlue hover:text-slate-50"
                     type="button"
+                    id="skill-btn"
                     onClick={this.toggleEdit}
                 >
                     Add
                 </button>
 
                 {edit &&
-                    <form id="skill-add" className="edit-form">
-                        <label htmlFor="skill">Habilidad</label>
+                    <form id="skill-add" className="edit-form flex flex-col gap-1 mb-4 border-2 border-customBlue p-2">
+                        <label className="font-bold" htmlFor="skill">Habilidad</label>
                         <input
+                            className="border-solid border-b-2 border-customBlue bg-transparent
+                            text-customBlue placeholder-customBlue focus:outline-none"
                             id="skill"
                             type="text"
                             value={skill}
                             onChange={this.handleSkillChange}
                         />
                         <button
+                            className="w-28 cursor-pointer mt-4 mb-2
+                            rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                            transition-all duration-300
+                            hover:bg-customBlue hover:text-slate-50"
                             type="button"
                             onClick={this.onSubmitSkill}
                         >
                             Add Experience
                         </button>
                         <button
+                            className="w-20 cursor-pointer mt-4 mb-2
+                            rounded-md border-solid border-2 border-customBlue text-customBlue font-semibold
+                            transition-all duration-300
+                            hover:bg-customBlue hover:text-slate-50"
                             type="button"
                             onClick={this.toggleEdit}
                         >

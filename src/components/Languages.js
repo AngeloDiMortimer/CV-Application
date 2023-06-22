@@ -68,7 +68,7 @@ class Languages extends Component {
 
         return (
             <div id="Languages" onMouseEnter={this.toggleBtn}>
-                <h2 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mt-4 mb-4">Languages</h2>
+                <h2 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mt-4 mb-4">Idiomas</h2>
                 <ul>
                     {languages.map(language => {
                         return (
