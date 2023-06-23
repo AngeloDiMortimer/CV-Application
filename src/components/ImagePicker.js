@@ -39,7 +39,7 @@ const ImagePicker = () => {
                     <span>
                         <div className="relative w-36 h-36 rounded-full hover:brightness-50
                                 hover:cursor-pointer">
-                            <img src={logo} alt="logo" className="rounded-full object-cover "
+                            <img src={logo} alt="logo" className="rounded-full object-cover w-36 h-36"
                                 onClick={openFileSelection}
                             />
                             

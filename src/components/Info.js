@@ -97,7 +97,7 @@ class Info extends Component {
                     <h1 className="text-3xl font-bold border-solid border-b-2 border-slate-50 mb-6">Contacto</h1>
 
                     <div className="address flex flex-row items-center gap-2 mb-4">
-                        <Icon path={mdiMapMarker} size={2} />
+                        <Icon path={mdiMapMarker} size={1.3} />
                         <div className="flex flex-col">
                             <h2 className="text-2xl font-bold ">Dirección</h2>
                             <p>{address ? address : '123 Address St City, ST 5555'}</p>
@@ -105,7 +105,7 @@ class Info extends Component {
                     </div>
 
                     <div className="birth flex flex-row items-center gap-2 mb-4">
-                        <Icon path={mdiCakeVariant} size={2} />
+                        <Icon path={mdiCakeVariant} size={1.3} />
                         <div className="flex flex-col">
                             <h2 className="text-2xl font-bold ">Cumpleaños</h2>
                             <p>{birthday ? birthday : '00-00-0000'}</p>
@@ -113,14 +113,14 @@ class Info extends Component {
                     </div>
 
                     <div className="phone flex flex-row items-center gap-2 mb-4">
-                        <Icon path={mdiCellphone} size={2} />
+                        <Icon path={mdiCellphone} size={1.3} />
                         <div className="flex flex-col">
                             <h2 className="text-2xl font-bold ">Telefono</h2>
                             <p>{phone ? phone : '555-555-555'}</p>
                         </div>
                     </div>
                     <div className="email flex flex-row items-center gap-2 mb-4">
-                        <Icon path={mdiEmail} size={2} />
+                        <Icon path={mdiEmail} size={1.3} />
                         <div className="flex flex-col">
                             <h2 className="text-2xl font-bold ">Email</h2>
                             <p>{email ? email : 'info@website.com'}</p>

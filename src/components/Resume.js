@@ -8,7 +8,7 @@ import Skills from "./Skills";
 class Resume extends Component {
     render() {
         return (
-            <div className="flex flex-row w-6/12" id="Resume">
+            <div className="flex flex-row w-full h-full" id="Resume">
                 <Aside />
                 <main className="flex flex-col text-customBlue bg-slate-50 p-8 w-9/12">
                     <Intro />

@@ -1,15 +1,25 @@
-import React, { Component } from "react";
+import React, { Component, useState, useRef } from "react";
+import { useReactToPrint } from 'react-to-print';
 import Resume from "./components/Resume";
+import Right from "./components/Right";
 
-class App extends Component {
-  render() {
+const App = () => {
+
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({ content: () => componentRef.current });
+
     return (
-      <div id="App">
+      <div className="flex flex-col items-center" id="App">
         
-        <Resume />
+        <Resume ref={componentRef}/>
+        <Right 
+          onPrint={handlePrint}
+        />
+
       </div>
     );
-  };
+
 }
 
 

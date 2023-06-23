@@ -90,7 +90,7 @@ class Competences extends Component {
                 <ul className="flex flex-col gap-2">
                     {competences.map(competence => {
                         return (
-                            <li className="text-xl hover:cursor-pointer" key={competence.id} onClick={() => this.handleRemove(competence.id)}>{competence.competence}</li>
+                            <li className="hover:cursor-pointer" key={competence.id} onClick={() => this.handleRemove(competence.id)}>{competence.competence}</li>
                         )
                     })}
                 </ul>

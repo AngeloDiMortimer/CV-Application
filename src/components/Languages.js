@@ -72,7 +72,7 @@ class Languages extends Component {
                 <ul>
                     {languages.map(language => {
                         return (
-                            <li className="text-xl hover:cursor-pointer" key={language.id} onClick={() => this.handleRemove(language.id)}>{language.language}</li>
+                            <li className="hover:cursor-pointer" key={language.id} onClick={() => this.handleRemove(language.id)}>{language.language}</li>
                         )
                     })}
                 </ul>
